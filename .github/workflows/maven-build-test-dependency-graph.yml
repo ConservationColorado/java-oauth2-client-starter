@@ -1,0 +1,33 @@
+# Build and test this project with Maven, caching dependencies to improve the workflow execution time
+
+name: Maven build, test, and dependency graph generation
+
+# Run automatically on pull requests to main
+# Run manually from the Actions tab
+on:
+  push:
+    branches: 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Install with Maven
+        run: mvn --batch-mode -DskipTests package
+
+      - name: Run tests with Maven
+        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+      - name: Update dependency graph
+        uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+
