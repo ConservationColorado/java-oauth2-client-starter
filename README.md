@@ -55,7 +55,7 @@ from your OAuth provider.
 | `CLIENT_SECRET` |     Y     | Your application's `client_secret` |
 
 Don't forget to reference your provider's name in
-[this line of configuration](https://github.com/ConservationColorado/java-oauth2-client-starter/blob/392ada9e59e34720d42f9eec9d91bb68c043f93e/src/main/resources/application.yml#L6).
+[this line of configuration](https://github.com/ConservationColorado/java-oauth2-client-starter/blob/259f36a0489973dd71148fffcd3eb829d470e79a/src/main/resources/application.yml#L6).
 
 ### Dependencies
 
